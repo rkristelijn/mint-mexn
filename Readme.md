@@ -1,9 +1,10 @@
 # Install:
 
-1. MongoDB
-2. Node (including NPM)
-3. Visual Studio Code
-4. Git
+1. [Visual Studio Code](#visual-studio-code)
+2. [Chrome](#chrome)
+4. [Git](#git)
+1. [MongoDB](#mongodb)
+2. [Node (including NPM)](#node)
 
 # History
 
@@ -97,3 +98,15 @@ My [Mint 18.2 version](https://linuxmint.com/download_all.php) is pointing to Un
 | 19 "Tara" | Ubuntu "Bionic" |
 | 18.3 "Sylvia" | Ubuntu "Xenial" |
 | **18.2 "Sonya"** | **Ubuntu "Xenial"** |
+
+#Node
+
+[reference](https://github.com/nodesource/distributions/blob/master/README.md)
+
+```bash
+
+sudo apt install curl
+
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
+sudo apt-get install -y nodejs
