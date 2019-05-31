@@ -36,7 +36,9 @@ Same as above with [downloading Chrome](https://www.google.com/intl/nl/chrome/) 
 
 Update your user so you don't have to type your password over and over again:
 
-`sodo vi /etc/sudoers` using `i`, add `user ALL=(ALL) NOPASSWD:ALL` at the last line, `<esc> :wq!`. Works the same as in Debian and Ubuntu.
+1. `sudo vi /etc/sudoers` using `i`, 
+2. add `user ALL=(ALL) NOPASSWD:ALL` at the last line, 
+3. `<esc> :wq!`. Works the same as in Debian and Ubuntu.
 
 # Git
 
@@ -44,13 +46,40 @@ Update your user so you don't have to type your password over and over again:
 sudo apt-get install git
 ```
 
+Configure git:
+
+## Generate SSH key
+
+[reference](https://help.github.com/en/articles/connecting-to-github-with-ssh)
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+```
+
+## Add SSH key to github account
+
+[reference](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account)
+
+```bash
+sudo apt-get install xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub
+```
+
+Go to [https://github.com/settings/keys](https://github.com/settings/keys) and add the key
+
+Now you can do git clone, push, pull without using a password every time.
+
 # MongoDB
 
 The right way: (don't forget to click [Ubuntu 16.04 (Xenial)-tab](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
 
 ```bash
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+
 sudo apt-get update
 sudo service mongod start
 mongo
@@ -85,6 +114,7 @@ Fixing the dependancies using `sudo apt-get install -f` didn't work.
 I had to [remove the key](https://askubuntu.com/questions/107177/how-can-i-remove-gpg-key-that-i-added-using-apt-key-add):
 
 Note the key needs to match to your apt-get list entry
+
 ```
 sudo apt-key list
 sudo apt-key del E52529D4
@@ -94,6 +124,7 @@ sudo rm /etc/apt/sources.list.d/mongodb-org-4.0.list
 My [Mint 18.2 version](https://linuxmint.com/download_all.php) is pointing to Ununtu Xenial:
 
 | Mint | Ubuntu | 
+|---|---|
 | 19.1 "Tessa" | Ubuntu "Bionic" |
 | 19 "Tara" | Ubuntu "Bionic" |
 | 18.3 "Sylvia" | Ubuntu "Xenial" |
@@ -104,9 +135,7 @@ My [Mint 18.2 version](https://linuxmint.com/download_all.php) is pointing to Un
 [reference](https://github.com/nodesource/distributions/blob/master/README.md)
 
 ```bash
-
 sudo apt install curl
-
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-
 sudo apt-get install -y nodejs
+```
