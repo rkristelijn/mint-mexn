@@ -1,4 +1,4 @@
-# Install:
+Following below steps will install on Linux Mint 18.2:
 
 1. [Visual Studio Code](#visual-studio-code)
 2. [Chrome](#chrome)
