@@ -130,7 +130,7 @@ My [Mint 18.2 version](https://linuxmint.com/download_all.php) is pointing to Un
 | 18.3 "Sylvia" | Ubuntu "Xenial" |
 | **18.2 "Sonya"** | **Ubuntu "Xenial"** |
 
-#Node
+# Node
 
 [reference](https://github.com/nodesource/distributions/blob/master/README.md)
 
