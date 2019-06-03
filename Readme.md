@@ -36,8 +36,8 @@ Same as above with [downloading Chrome](https://www.google.com/intl/nl/chrome/) 
 
 Update your user so you don't have to type your password over and over again:
 
-1. `sudo vi /etc/sudoers` using `i`, 
-2. add `user ALL=(ALL) NOPASSWD:ALL` at the last line, 
+1. `sudo vi /etc/sudoers.d/user_nopasswd` using `i`, 
+2. add `user ALL=(ALL) NOPASSWD:ALL` at the last line (replace user with your username), 
 3. `<esc> :wq!`. Works the same as in Debian and Ubuntu.
 
 # Git
